@@ -192,6 +192,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
 
 
 
@@ -259,6 +261,8 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         #llum_aliases
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 

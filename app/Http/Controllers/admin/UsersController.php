@@ -7,7 +7,6 @@ use App\models\Role;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Psy\Util\Json;
 
 class UsersController extends Controller
 {
