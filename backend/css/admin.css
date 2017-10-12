@@ -1,0 +1,106 @@
+.table-image {
+  max-width: 10vw;
+  max-height: 15vh; }
+
+.show-image {
+  margin: 0 auto;
+  max-height: 40vh; }
+
+.image {
+  text-align: center; }
+
+.thumbnail .book-image {
+  height: 333px; }
+
+.book-description, .caption > h3 {
+  line-break: strict;
+  word-break: break-all;
+  word-wrap: break-word;
+  height: 44px; }
+
+.stars-ratings {
+  float: left; }
+
+.stars-ratings li {
+  padding: 0; }
+
+.stars-ratings input {
+  left: -9999px;
+  position: absolute; }
+
+.stars-ratings label {
+  float: right;
+  height: 17px;
+  display: block;
+  padding: 0 2px;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 17px; }
+
+.stars-ratings label {
+  color: #ffbeb2;
+  transition: color 0.3s; }
+
+i.fa.fa-star {
+  font-size: 20px; }
+
+.stars-ratings input + label:hover,
+.stars-ratings input + label:hover ~ label {
+  color: #FF5050; }
+
+.stars-ratings input:checked ~ label {
+  color: #FF5050; }
+
+.review-submit button.btn-u.pull-right {
+  margin-top: -17px; }
+
+/*Stars Ratings Label*/
+.stars-ratings-label label {
+  font-size: 24px;
+  margin: 0 4px 5px; }
+
+.stars {
+  height: 22px !important; }
+
+.genres {
+  height: 44px; }
+
+.show-cart {
+  text-align: center; }
+
+.show-cart > tbody > tr > td {
+  vertical-align: middle; }
+
+.last {
+  position: relative; }
+
+.delete-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem; }
+
+.minus, .minus:hover, .minus:focus,
+.plus, .plus:hover, .plus:focus {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  outline: none; }
+
+.minus {
+  color: orangered; }
+
+.minus:hover, .minus:focus {
+  color: red; }
+
+.plus {
+  color: green; }
+
+.plus:hover, .plus:focus {
+  color: greenyellow; }
+
+.quantity {
+  font-size: 3rem; }
+
+/*# sourceMappingURL=admin.css.map */
