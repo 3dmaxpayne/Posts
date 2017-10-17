@@ -1,7 +1,10 @@
-<app-header></app-header>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-    </div>
-  </div>
+<div class="main-wrapper">
+    <img src="../assets/img/main-bg.jpeg" alt="">
 </div>
+<!--web site spinner-->
+<div *ngIf="pageLoading" id="webSiteLoader"></div>
+<!--page spinner-->
+<div id="pageLoader"><div></div></div>
+
+<app-header></app-header>
+<app-menu></app-menu>

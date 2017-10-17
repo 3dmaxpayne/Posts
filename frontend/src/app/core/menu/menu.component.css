@@ -1,0 +1,203 @@
+header {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    z-index: 1000;
+}
+header h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 50px;
+    color: white;
+    text-shadow: 0px 0px 3px #bbb8b6;
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 29px;
+    text-align: center;
+}
+header h1 > a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    /*width: 100%;*/
+
+}
+.select-menu {
+    display: none;
+    width: 100%;
+}
+header .navbar {
+    position: relative;
+    /*margin: 0;*/
+    margin-top: 5vh;
+    /*margin-left: 0;*/
+    text-align: center;
+}
+header .navbar > .navbar-inner {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    width: 100%;
+    filter: none;
+    display: inline-block;
+}
+.menu_col {
+    width: 1040px;
+    float: none;
+    min-height: 1px;
+    margin: 0 auto;
+}
+#wrapper .navbar-inner {
+    padding-right: 0px;
+    padding-left: 0px;
+    min-height: 0;
+    border: 0;
+    width: 100%;
+    background-color: inherit;
+    background-image: none;
+    background-repeat: inherit;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    filter: inherit;
+}
+.sf-menu {
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    margin-top: 10px;
+    margin-left: -7px;
+    min-height: 170px;
+}
+.sf-menu > li {
+    position: relative;
+    width: 32%;
+    display: inline-block;
+    float: left;
+    margin: 5px;
+    height: 268px;
+    background: url(/assets/img/menu-bg.jpg);
+}
+
+.sf-menu > li:hover > a > .base_text,
+.sf-menu > li:hover > a > .num_text,
+.sf-menu > li:hover > a > i{
+    color: #ffd700;
+    text-shadow: 0px 0px 3px black;
+}
+
+.sf-menu > li > a {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    color: #bbb8b6;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: 12px 'Open Sans', "PT Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: visible !important;
+}
+.sf-menu > li > a > i {
+    font-size: 100px;
+    line-height: 260px;
+    color: #6d2d2d;
+}
+.sf-menu > li > a .base_text,
+.sf-menu > li > a .num_text {
+    position: absolute;
+    font: bold 15px 'Open Sans', "PT Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: italic;
+    bottom: 7px;
+    left: 20px;
+    color: #6d2d2d;
+    margin-bottom: 7px;
+}
+.sf-menu > li > a .num_text {
+    font: bold 20px 'Open Sans', "PT Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: italic;
+    left: auto;
+    right: 20px;
+    bottom: 4px;
+    /*opacity: 0.3;
+      filter: alpha(opacity=30);*/
+
+}
+.sf-menu > li > a img {
+    margin-top: 75px;
+    position: absolute;
+    left: 72px;
+}
+.openPart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    /*background: url(../img/menu_over_plane.png);*/
+
+    background: #fecc5d;
+}
+/*submenu1*/
+.sf-menu ul {
+    position: absolute;
+    display: none;
+    top: 183px;
+    left: 0px;
+    z-index: 10;
+    padding: 27px 17px 26px 17px;
+    width: 138px;
+    background: #fecc5d;
+    list-style: none;
+    text-align: center;
+}
+.sf-menu ul > li {
+    display: block;
+    margin-top: 1px;
+    text-align: left;
+}
+.sf-menu ul a {
+    position: relative;
+    display: block;
+    color: #50372d;
+    text-decoration: none;
+    text-transform: uppercase;
+    font: bold 10px 'Open Sans', "PT Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: italic;
+    padding: 8px 5px 7px 3px;
+    border-bottom: 1px solid #fff;
+}
+.sf-menu ul a.last {
+    border-bottom: none;
+}
+.sf-menu ul a:hover {
+    text-decoration: none;
+    background: #fff;
+}
+/*submenu2*/
+.sf-menu .subMenu2 {
+    top: 0;
+    left: 173px;
+    width: 138px;
+    background: #fecc5d;
+}
+.sf-menu .subMenu2 a {
+    color: #50372d !important;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+.sf-menu .subMenu2 a:hover {
+    color: #50372d !important;
+}

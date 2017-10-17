@@ -2,25 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/header/header.component';
 import { BookItemComponent } from './books/book-item/book-item.component';
 import { BookNewComponent } from './books/book-new/book-new.component';
-import { HomeComponent } from './core/home/home.component';
 import { CartComponent } from './cart/cart.component';
+import { CoreModule } from './core/core.module';
+import { HttpModule } from '@angular/http';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    BookItemComponent,
-    BookNewComponent,
-    HomeComponent,
-    CartComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        BookItemComponent,
+        BookNewComponent,
+        CartComponent
+    ],
+    imports: [
+        AuthModule,
+        HttpModule,
+        BrowserModule,
+        CoreModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

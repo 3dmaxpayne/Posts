@@ -1,10 +1,19 @@
-import { Component } from '@angular/core';
+import { AfterContentInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterContentInit{
   title = 'app';
+  pageLoading = true;
+
+  ngOnInit(){
+  }
+
+  ngAfterContentInit() {
+    this.pageLoading = false;
+  }
 }

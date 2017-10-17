@@ -1,0 +1,26 @@
+header {
+    height: 10vh;
+    max-height: 50px;
+}
+
+.navbar-right {
+    float: right;
+    height: 100%;
+    list-style: none;
+}
+
+.navbar-right > li {
+    display: inline-block;
+    margin: 5px 25px;
+    font: 15px 'Open Sans', "PT Sans", Arial, "Helvetica Neue", Helvetica, sans-serif
+}
+
+.navbar-right > li > a {
+    text-decoration: none !important;
+    color: #6d2d2d;
+}
+
+.navbar-right > li > a:hover {
+    color: black;
+    text-shadow: 0px 0px 1px black;
+}
