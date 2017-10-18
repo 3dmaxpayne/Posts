@@ -43,3 +43,10 @@ body {
     height: 50px;
     background: url(../assets/img/page_loader.gif) 0 0 no-repeat;
 }
+
+.menu-col {
+    width: 1040px;
+    float: none;
+    margin: 0 auto;
+    background-color: #d5beb4;
+}

@@ -1,21 +1,38 @@
 <header>
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-right">
-            <ng-template [ngIf]="!authService.isAuthenticated()">
-                <li><a routerLink="/signup">Register</a></li>
-                <li><a routerLink="/signin">Login</a></li>
-            </ng-template>
+    <div class="container">
+        <div class="menu_col">
+            <!--logo and company name-->
+            <h1 routerLink="/"><a>{{logo}}</a></h1>
+            <!--menu-->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <ul class="sf-menu" [ngClass]="{'minimized': notHome}">
+                        <li><a class="pointer"><i class="fa fa-home" aria-hidden="true"></i><div class="base_text">Home</div><div class="num_text">01</div></a></li>
+                        <li><a class="pointer"><i class="fa fa-trophy" aria-hidden="true"></i><div class="base_text">recommended</div><div class="num_text">02</div></a>
+                            <ul class="subMenu">
+                                <li><a class="pointer">Top Ranked</a>
+                                    <!--<ul class="subMenu2">-->
+                                        <!--<li><a class="pointer">archive</a></li>-->
+                                        <!--<li><a class="last pointer">fresh</a></li>-->
+                                    <!--</ul>-->
+                                </li>
+                                <li><a class="pointer">Most commented</a></li>
+                                <li><a class="pointer">Best Sellers</a></li>
+                                <li><a class="last pointer">Newest</a></li>
+                            </ul>
+                        </li>
 
-            <li *ngIf="authService.isAuthenticated() ">
-                <a style="cursor: pointer;">Logout</a></li>
+                        <li><a class="pointer"><i class="fa fa-percent" aria-hidden="true"></i><div class="base_text">Sales</div><div class="num_text">03</div></a></li>
+                        <li><a class="pointer"><i class="fa fa-leanpub" aria-hidden="true"></i><div class="base_text">All books</div><div class="num_text">04</div></a></li>
+                        <li><a class="pointer"><i class="fa fa-search" aria-hidden="true"></i><div class="base_text">Search</div><div class="num_text">05</div></a></li>
+                        <li *ngIf="!authService.isAuthenticated(); else profile"><a routerLink="/signin"><i class="fa fa-sign-in" aria-hidden="true"></i><div class="base_text">Sign in</div><div class="num_text">06</div></a></li>
+                        <ng-template #profile>
+                            <li ><a class="pointer"><i class="fa fa-user-circle-o" aria-hidden="true"></i><div class="base_text">Profile</div><div class="num_text">06</div></a></li>
+                        </ng-template>
 
-            <li class="dropdown" *ngIf="authService.isAuthenticated()">
-                <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a style="cursor: pointer;">Save Data</a></li>
-                    <li><a style="cursor: pointer;" >Fetch Data</a></li>
-                </ul>
-            </li>
-        </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </header>

@@ -4,22 +4,23 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AuthService } from '../auth/auth.service';
 import { HeaderComponent } from './header/header.component';
-import { MenuComponent } from './menu/menu.component';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
         HomeComponent,
         HeaderComponent,
-        MenuComponent
     ],
     imports: [
         AppRoutingModule,
-        CommonModule
+        CommonModule,
+        BrowserModule,
+        RouterModule
     ],
     exports: [
         AppRoutingModule,
-        MenuComponent,
         HeaderComponent,
 
     ],
