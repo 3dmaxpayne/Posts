@@ -1,9 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400);
 @import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
 body {
     margin: 0;
 }
+a, a:hover, a:focus, a:visited{
+    text-decoration: none !important;
+    color: white;
+}
+
 
 .main-wrapper {
     position: fixed;
@@ -49,4 +55,10 @@ body {
     float: none;
     margin: 0 auto;
     background-color: #d5beb4;
+}
+
+.content {
+    background: url(../assets/img/content-bg.jpg) repeat-y;
+    background-size: cover;
+    padding: 25px;
 }

@@ -85,6 +85,7 @@ header .navbar > .navbar-inner {
 .sf-menu > li {
     position: relative;
     width: 32%;
+    transition: 0.5s;
     display: inline-block;
     float: left;
     margin: 5px;
@@ -97,6 +98,7 @@ header .navbar > .navbar-inner {
 .sf-menu > li:hover > a > i{
     color: #ffd700;
     text-shadow: 0px 0px 3px black;
+    transition: 0.5s
 }
 
 .sf-menu > li > a {
@@ -116,6 +118,7 @@ header .navbar > .navbar-inner {
     font-size: 100px;
     line-height: 260px;
     color: #6d2d2d;
+    transition: 0.5s;
 }
 .sf-menu > li > a .base_text,
 .sf-menu > li > a .num_text {

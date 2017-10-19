@@ -23,8 +23,13 @@ class AuthController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
+        $user = \JWTAuth::toUser($token);
+        unset($user->password);
+        unset($user->remember_token);
+        $user->token = $token;
+        dd($user);
         // all good so return the token
-        return response()->json(compact('token'));
+        return response()->json(compact('user'));
     }
 
     public function logout ()
