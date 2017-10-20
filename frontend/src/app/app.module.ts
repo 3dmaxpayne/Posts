@@ -8,19 +8,21 @@ import { CartComponent } from './cart/cart.component';
 import { CoreModule } from './core/core.module';
 import { HttpModule } from '@angular/http';
 import { AuthModule } from './auth/auth.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
     declarations: [
         AppComponent,
         BookItemComponent,
         BookNewComponent,
-        CartComponent
+        CartComponent,
     ],
     imports: [
         AuthModule,
         HttpModule,
         BrowserModule,
-        CoreModule
+        CoreModule,
+        HomeModule
     ],
     providers: [],
     bootstrap: [AppComponent]

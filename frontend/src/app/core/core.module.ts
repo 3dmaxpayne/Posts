@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 
-import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AuthService } from '../auth/auth.service';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
     declarations: [
-        HomeComponent,
         HeaderComponent,
+        MainComponent,
     ],
     imports: [
         AppRoutingModule,
