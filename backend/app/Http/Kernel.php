@@ -14,11 +14,12 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+        \App\Http\Middleware\APIResponseHeaders::class,
+//        \Barryvdh\Cors\HandleCors::class,
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
-        \App\Http\Middleware\APIResponseHeaders::class,
 
     ];
 
@@ -39,6 +40,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
+//            \App\Http\Middleware\APIResponseHeaders::class,
             'throttle:60,1',
             'bindings',
         ],
@@ -63,5 +65,6 @@ class Kernel extends HttpKernel
         'ability' => \Zizaco\Entrust\Middleware\EntrustAbility::class,
         'jwt.auth' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
+        'cors' => \App\Http\Middleware\APIResponseHeaders::class,
     ];
 }

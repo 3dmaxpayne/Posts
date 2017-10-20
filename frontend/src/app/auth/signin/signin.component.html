@@ -2,11 +2,11 @@
     <div class="row">
         <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4" *ngIf="!register; else signup">
             <h3>Log In</h3>
-            <p [ngClass] = "{'has-error': (authService.error === false ? true : false)}" style="color: red">{{authService.error.message }} </p>
+            <p [ngClass] = "{'has-error': (error === false ? true : false)}" style="color: red">{{error.message }} </p>
             <form
                     (ngSubmit)="onSignin(f)"
                     #f="ngForm"
-                    [ngClass] = "{'has-error': (authService.error === false ? false : true)}"
+                    [ngClass] = "{'has-error': (error === false ? false : true)}"
             >
                 <div class="form-group">
                     <label for="email">Mail</label>

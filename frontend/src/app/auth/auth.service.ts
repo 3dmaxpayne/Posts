@@ -1,11 +1,10 @@
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import 'rxjs/Rx'
 
 @Injectable()
 export class AuthService {
     user: string;
-    error = false;
 
     constructor(private http: Http) {
         this.user = localStorage.getItem('user') ? localStorage.getItem('user') : null;
@@ -13,37 +12,30 @@ export class AuthService {
 
     signupUser(email: string, password: string) {
 
-        this.http.post('http://127.0.0.1:8000/api/register', {'email': email, 'password': password})
-            .subscribe(
+        return this.http.post('http://127.0.0.1:8000/api/register', {'email': email, 'password': password},)
+            .map(
                 (response) => {
+                    console.log(response);
                     this.user = response.json().user;
                     localStorage.setItem('user', this.user);
-                    this.error = false;
+                    return response;
                 },
-                    (error) => {
-                        this.error = error.json();
-                        console.log(this.error)
-                    }
             );
     }
 
     signinUser(email: string, password: string) {
-        this.http.post('http://127.0.0.1:8000/api/login', {'email': email, 'password': password})
-            .subscribe(
+        return this.http.post('http://127.0.0.1:8000/api/login', {'email': email, 'password': password})
+            .map(
                 (response) => {
                     this.user = response.json().user;
                     localStorage.setItem('user', this.user);
-                    this.error = false;
-                },
-                (error) => {
-                    this.error = error.json();
-                    console.log(this.error)
+                    return response;
                 }
             );
     }
 
     logout() {
-        this.http.post('http://127.0.0.1:8000/api/register', {});
+        this.http.post('http://127.0.0.1:8000/api/logout', {});
         this.user = null;
     }
 

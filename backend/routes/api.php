@@ -28,7 +28,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     #adminlte_api_routes
 });
 
-Route::post('/login','AuthController@authenticate');
+Route::post('/login','AuthController@authenticate')->middleware('cors');
 
 Route::post('/logout','AuthController@logout');
 

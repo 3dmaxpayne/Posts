@@ -27,9 +27,8 @@ class AuthController extends Controller
         unset($user->password);
         unset($user->remember_token);
         $user->token = $token;
-        dd($user);
         // all good so return the token
-        return response()->json(compact('user'));
+        return response()->json(compact('user'),200);
     }
 
     public function logout ()
@@ -55,6 +54,6 @@ class AuthController extends Controller
             return response()->json($e->getMessage());
         }
         $token = \JWTAuth::fromUser($user);
-        return response()->json(compact('token'));
+        return response()->json(compact('token'),200);
     }
 }

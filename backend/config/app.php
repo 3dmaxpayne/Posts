@@ -193,9 +193,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
-
-
-
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
