@@ -2,33 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\models\Book;
 use App\Repositories\BookRepository;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
     protected $bookRepository;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct(BookRepository $bookRepository)
     {
 //        $this->middleware('auth');
-//        $this->bookRepository = $bookRepository;
+        $this->bookRepository = $bookRepository;
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function index($offset = 0)
     {
-//        $books = $this->bookRepository->with(['comments','genres'])->paginate(8);
-//        return response()->json(['books' => $books]);
-        abort(404);
+        $offset = $offset * 20;
+        $books = Book::with(['comments','genres'])->offset($offset)->limit(20)->get();
+        return new JsonResponse($books);
     }
 }

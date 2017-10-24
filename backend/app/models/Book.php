@@ -19,6 +19,18 @@ class Book extends Model implements Transformable
         'file'
     ];
 
+    protected $visible = [
+        'title',
+        'description',
+        'image',
+        'date',
+        'price',
+        'rank'
+    ];
+
+    protected $appends = ['rank', 'authors', 'genres', 'comments'];
+
+
     public $timestamps = false;
 
     public function authors()
@@ -36,7 +48,14 @@ class Book extends Model implements Transformable
         return $this->hasMany(Comment::class);
     }
 
-    public function getRank()
+    public function toArray() {
+        $data = parent::toArray();
+        $data['authors'] = $this->authors->toArray();
+        $data['genres'] = $this->genres->toArray();
+        return $data;
+    }
+
+    public function getRankAttribute()
     {
         $comments = $this->comments;
         $totalRank = 0;

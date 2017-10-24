@@ -7,11 +7,14 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
+import { BookService } from '../books/book.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
     declarations: [
         HeaderComponent,
         MainComponent,
+        SearchComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -26,6 +29,7 @@ import { MainComponent } from './main/main.component';
     ],
     providers: [
         AuthService,
+        BookService
     ],
 })
 export class CoreModule {}

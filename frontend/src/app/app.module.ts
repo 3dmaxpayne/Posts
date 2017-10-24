@@ -2,19 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BookItemComponent } from './books/book-item/book-item.component';
-import { BookNewComponent } from './books/book-new/book-new.component';
 import { CartComponent } from './cart/cart.component';
 import { CoreModule } from './core/core.module';
 import { HttpModule } from '@angular/http';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
+import { BooksModule } from './books/books.module';
+import { BookRoutingModule } from './books/book-routing.module';
 
 @NgModule({
     declarations: [
         AppComponent,
-        BookItemComponent,
-        BookNewComponent,
         CartComponent,
     ],
     imports: [
@@ -22,7 +20,9 @@ import { HomeModule } from './home/home.module';
         HttpModule,
         BrowserModule,
         CoreModule,
-        HomeModule
+        HomeModule,
+        BooksModule,
+        BookRoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]

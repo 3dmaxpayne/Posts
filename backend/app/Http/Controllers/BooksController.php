@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -29,11 +30,7 @@ class BooksController extends Controller
     }
 
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $books = $this->repository->with('authors', 'comments', 'genres')->all();
@@ -41,9 +38,67 @@ class BooksController extends Controller
             $book['rank'] = $book->rank;
         }
 
-        return response()->json([
-            'books' => $books,
-        ]);
+        $books = $books->shuffle()->limit(20)->get();
+
+        return new JsonResponse($books);
+    }
+
+    public function topRated($page = 1)
+    {
+        $books = $this->repository->all();
+        $books = $books->groupBy(function ($book) {
+            return $book->rank;
+        });
+        $books = $books->limit(20);
+        foreach ($books as $book) {
+            $book['rank'] = $book->rank;
+        }
+
+        return new JsonResponse($books);
+
+    }
+
+    public function topCommented($page = 1)
+    {
+        $books = $this->repository->all();
+        $books = $books->groupBy(function ($book) {
+            return $book->comments->count();
+        });
+        $books = $books->limit(20);
+
+        foreach ($books as $book) {
+            $book['rank'] = $book->rank;
+        }
+
+        return new JsonResponse($books);
+    }
+
+    public function bestSellers($page = 1)
+    {
+        $books = $this->repository->all();
+        $books = $books->groupBy(function ($book) {
+            return $book->rank;
+        });
+        $books = $books->limit(20);
+
+        foreach ($books as $book) {
+            $book['rank'] = $book->rank;
+        }
+
+        return new JsonResponse($books);
+    }
+
+    public function newest()
+    {
+        $books = $this->repository->all();
+        $books = $books->groupBy('created_at');
+        $books = $books->limit(20);
+
+        foreach ($books as $book) {
+            $book['rank'] = $book->rank;
+        }
+
+        return new JsonResponse($books);
     }
 
 

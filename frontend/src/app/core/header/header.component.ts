@@ -7,7 +7,7 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnChanges {
+export class HeaderComponent implements OnInit {
   public logo = 'Bookstore';
   public notHome = false;
 
@@ -26,9 +26,6 @@ export class HeaderComponent implements OnInit, OnChanges {
             }
           }
       )
-  }
-
-  ngOnChanges(){
   }
 
 }

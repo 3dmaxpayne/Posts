@@ -37,7 +37,7 @@ Route::post('/register','AuthController@register');
 Route::group([
     'middleware' => ['jwt.auth', 'jwt.refresh'],
 ], function () {
-    Route::get('/books', 'BooksController@index');
+    Route::get('/books/recommended', 'BooksController@index');
     Route::get('/book/{id}', 'BooksController@show');
     Route::post('/book/{id}/comment', 'CommentsController@store');
 
