@@ -9,6 +9,7 @@ import { BookService } from '../book.service';
 })
 export class SalesComponent implements OnInit, OnDestroy {
     books: Book[];
+    page:number = 1;
 
     private subscription;
 

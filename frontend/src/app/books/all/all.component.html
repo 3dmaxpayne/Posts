@@ -1,6 +1,6 @@
 <div class="content">
     <div class="row">
-        <div *ngFor="let book of books | paginate: { itemsPerPage: 20, currentPage: p }">
+        <div *ngFor="let book of books | paginate: { itemsPerPage: 20, currentPage: page }">
             <div class="col-md-6">
                 <div class="book">
                     <h2>{{ book.title}}</h2>
