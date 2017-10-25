@@ -30,7 +30,6 @@ export class BookService {
                 (response) => {
                     this.books = response.json();
                     this.booksChanged.next(this.books.slice());
-                    console.log(this.books);
                     return response.json();
                 },
                 (error) => {
@@ -39,13 +38,40 @@ export class BookService {
             )
     }
 
+    getAllBooks() {
+        return this.http.get(this.apiHost + 'books/all')
+            .map(
+                (response) => {
+                    this.books = response.json();
+                    this.booksChanged.next(this.books.slice());
+                    return response.json();
+                },
+                (error) => {
+                    console.log(error)
+                }
+            );
+    }
+
     getBooksForHome() {
         return this.http.get(this.apiHost + 'home')
             .map(
                 (response) => {
                     this.books = response.json();
                     this.booksChanged.next(this.books.slice());
-                    console.log(this.books);
+                    return response.json();
+                },
+                (error) => {
+                    console.log(error)
+                }
+            );
+    }
+
+    getSalesBooks() {
+        return this.http.get(this.apiHost + 'books/sales')
+            .map(
+                (response) => {
+                    this.books = response.json();
+                    this.booksChanged.next(this.books.slice());
                     return response.json();
                 },
                 (error) => {
@@ -55,7 +81,6 @@ export class BookService {
     }
 
     getCurrentBooks() {
-        console.log(this.books);
         return this.books.slice();
     }
 

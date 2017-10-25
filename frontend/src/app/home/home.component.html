@@ -15,7 +15,8 @@
                                 <li><a href="#"> <span *ngFor="let author of book.authors">{{author.name}}, </span> </a></li>
                                 <li><a href="#"><span *ngFor="let genre of book.genres">{{genre.genre}}, </span></a></li>
                                 <li><a>Release date: {{book.date}}</a></li>
-                                <li><a class="price">{{book.price}} $</a></li>
+                                <li><a [ngClass]="book.sales_price != undefined ? 'striked price' : 'price'">{{book.price}} $</a>
+                                    <a *ngIf="book.sales_price" class="price">{{book.sales_price}} $</a></li>
                             </ul>
                             <a class="btn btn-link more" href="#">Details</a>
                             <a class="btn btn-link more" href="#">Add to Cart</a>

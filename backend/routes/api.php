@@ -31,6 +31,8 @@ Route::group([
     Route::get('/commented', 'BooksController@topCommented');
     Route::get('/bestsellers', 'BooksController@bestSellers');
     Route::get('/newest', 'BooksController@newest');
+    Route::get('/all', 'BooksController@allBooks');
+    Route::get('/sales', 'BooksController@sales');
 
 });
 

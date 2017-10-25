@@ -16,7 +16,8 @@ class Book extends Model implements Transformable
         'image',
         'date',
         'price',
-        'file'
+        'file',
+        'sales_price'
     ];
 
     protected $visible = [
@@ -25,6 +26,7 @@ class Book extends Model implements Transformable
         'image',
         'date',
         'price',
+        'sales_price',
         'rank'
     ];
 

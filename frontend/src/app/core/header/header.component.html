@@ -17,8 +17,8 @@
                             </ul>
                         </li>
 
-                        <li><a class="pointer"><i class="fa fa-percent" aria-hidden="true"></i><div class="base_text">Sales</div><div class="num_text">03</div></a></li>
-                        <li><a class="pointer"><i class="fa fa-leanpub" aria-hidden="true"></i><div class="base_text">All books</div><div class="num_text">04</div></a></li>
+                        <li><a routerLink="/books/sales" class="pointer"><i class="fa fa-percent" aria-hidden="true"></i><div class="base_text">Sales</div><div class="num_text">03</div></a></li>
+                        <li><a routerLink="/books/all" class="pointer"><i class="fa fa-leanpub" aria-hidden="true"></i><div class="base_text">All books</div><div class="num_text">04</div></a></li>
                         <li><a class="pointer"><i class="fa fa-search" aria-hidden="true"></i><div class="base_text">Search</div><div class="num_text">05</div></a></li>
                         <li *ngIf="!authService.isAuthenticated(); else profile"><a routerLink="/signin"><i class="fa fa-sign-in" aria-hidden="true"></i><div class="base_text">Sign in</div><div class="num_text">06</div></a></li>
                         <ng-template #profile>

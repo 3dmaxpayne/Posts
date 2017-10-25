@@ -6,13 +6,14 @@ import { SalesComponent } from './sales/sales.component';
 import { AllComponent } from './all/all.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BooksComponent } from './books.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
     imports: [
         CommonModule,
         HttpModule,
-        BookRoutingModule
-
+        BookRoutingModule,
+        NgxPaginationModule
     ],
     declarations: [
         BookItemComponent,

@@ -91,7 +91,7 @@ li:focus {
     position: relative;
     display: inline-block;
     padding: 0;
-    color: #fecc5d;
+    color: #fecc5d !important;
     font-size: 15px;
     font-style: italic;
     text-transform: uppercase;
@@ -102,3 +102,23 @@ li:focus {
 .more2:hover {
     color: #fff;
 }
+
+.my-pagination {
+    margin: 25px 0;
+}
+
+ul.ngx-pagination {
+    text-align: center;
+}
+
+ul.ngx-pagination > li {
+    color: white;
+}
+
+.striked {
+    font-size: 20px;
+    text-decoration: line-through !important;
+    margin-right: 10px;
+    color: black;
+}
+

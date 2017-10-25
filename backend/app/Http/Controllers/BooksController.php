@@ -96,6 +96,28 @@ class BooksController extends Controller
         return new JsonResponse($books);
     }
 
+    public function allBooks() {
+        $books = $books = $this->repository->all();
+        foreach ($books as $book) {
+            $book['rank'] = $book->rank;
+        }
+
+        return new JsonResponse($books);
+    }
+
+    public function sales() {
+        $books = $books = $this->repository->all();
+        $books = $books->filter(function ($item)
+        {
+            return $item->sales_price != null;
+        });
+        foreach ($books as $book) {
+            $book['rank'] = $book->rank;
+        }
+
+        return new JsonResponse($books);
+    }
+
 
     /**
      * Display the specified resource.
