@@ -7,8 +7,8 @@ import { Subject } from 'rxjs/Subject';
 export class BookService {
     booksChanged = new Subject<Book[]>();
     private books: Book[] = [];
-    private bookStorage = 'http://localhost:8000/img/covers/';
-    private apiHost: string = 'http://localhost:8000/api/';
+    private bookStorage = 'http://posts.loc/img/covers/';
+    private apiHost: string = 'http://posts.loc/api/';
 
     constructor(private http: Http) { }
 
