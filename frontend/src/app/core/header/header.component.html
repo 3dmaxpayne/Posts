@@ -8,17 +8,12 @@
                 <div class="navbar-inner">
                     <ul class="sf-menu" [ngClass]="{'minimized': notHome}">
                         <li routerLink="/home" ><a class="pointer"><i class="fa fa-home" aria-hidden="true"></i><div class="base_text">Home</div><div class="num_text">01</div></a></li>
-                        <li routerLink="/books/recommended"><a class="pointer"><i class="fa fa-trophy" aria-hidden="true"></i><div class="base_text">recommended</div><div class="num_text">02</div></a>
+                        <li><a routerLink="/books/recommended" class="pointer"><i class="fa fa-trophy" aria-hidden="true"></i><div class="base_text">recommended</div><div class="num_text">02</div></a>
                             <ul class="subMenu">
-                                <li><a class="pointer">Top Ranked</a>
-                                    <!--<ul class="subMenu2">-->
-                                        <!--<li><a class="pointer">archive</a></li>-->
-                                        <!--<li><a class="last pointer">fresh</a></li>-->
-                                    <!--</ul>-->
-                                </li>
-                                <li><a class="pointer">Most commented</a></li>
-                                <li><a class="pointer">Best Sellers</a></li>
-                                <li><a class="last pointer">Newest</a></li>
+                                <li><a routerLink="/books/ranked" class="pointer">Top Ranked</a></li>
+                                <li><a routerLink="/books/commented" class="pointer">Most commented</a></li>
+                                <li><a routerLink="/books/bestsellers" class="pointer">Best Sellers</a></li>
+                                <li><a routerLink="/books/newest" class="last pointer">Newest</a></li>
                             </ul>
                         </li>
 

@@ -12,24 +12,12 @@ use App\Validators\BookValidator;
 
 class BooksController extends Controller
 {
-
-    /**
-     * @var BookRepository
-     */
     protected $repository;
-
-    /**
-     * @var BookValidator
-     */
-    protected $validator;
 
     public function __construct(BookRepository $repository, BookValidator $validator)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
     }
-
-
 
     public function index()
     {
@@ -38,52 +26,57 @@ class BooksController extends Controller
             $book['rank'] = $book->rank;
         }
 
-        $books = $books->shuffle()->limit(20)->get();
+        $books = $books->shuffle()->chunk(20)[0];
 
         return new JsonResponse($books);
     }
 
-    public function topRated($page = 1)
+    public function topRated()
     {
         $books = $this->repository->all();
-        $books = $books->groupBy(function ($book) {
-            return $book->rank;
+        $books = $books->sortByDesc(function ($book, $key) {
+            return floatval($book->rank);
         });
-        $books = $books->limit(20);
+        $books = $books->chunk(20)[0];
         foreach ($books as $book) {
             $book['rank'] = $book->rank;
         }
+        $books = $books->values()->all();
 
-        return new JsonResponse($books);
+        return response()->json($books);
 
     }
 
-    public function topCommented($page = 1)
+    public function topCommented()
     {
         $books = $this->repository->all();
-        $books = $books->groupBy(function ($book) {
+        $books = $books->sortByDesc(function ($book) {
             return $book->comments->count();
         });
-        $books = $books->limit(20);
+        $books = $books->chunk(20)[0];
 
         foreach ($books as $book) {
             $book['rank'] = $book->rank;
         }
+
+        $books = $books->values()->all();
 
         return new JsonResponse($books);
     }
 
-    public function bestSellers($page = 1)
+    public function bestSellers()
     {
         $books = $this->repository->all();
-        $books = $books->groupBy(function ($book) {
+        $books = $books->sortByDesc(function ($book) {
             return $book->rank;
         });
-        $books = $books->limit(20);
+        $books = $books->chunk(20)[0];
 
         foreach ($books as $book) {
             $book['rank'] = $book->rank;
         }
+
+        $books = $books->values()->all();
 
         return new JsonResponse($books);
     }
@@ -91,12 +84,14 @@ class BooksController extends Controller
     public function newest()
     {
         $books = $this->repository->all();
-        $books = $books->groupBy('created_at');
-        $books = $books->limit(20);
+        $books = $books->sortByDesc('created_at');
+        $books = $books->chunk(20)[0];
 
         foreach ($books as $book) {
             $book['rank'] = $book->rank;
         }
+
+        $books = $books->values()->all();
 
         return new JsonResponse($books);
     }

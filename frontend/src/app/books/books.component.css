@@ -1,0 +1,13 @@
+.book {
+    margin-bottom: 50px;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 28px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font: bold 22px 'Open Sans', "PT Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-style: italic;
+    display: block;
+}

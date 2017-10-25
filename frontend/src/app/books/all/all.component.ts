@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { BookService } from '../book.service';
 
 @Component({
-  selector: 'app-all',
-  templateUrl: './all.component.html',
-  styleUrls: ['./all.component.css']
+    selector: 'app-all',
+    templateUrl: './all.component.html',
+    styleUrls: ['./all.component.css']
 })
-export class AllComponent implements OnInit {
+export class AllComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+    constructor(public bookService: BookService) {
 
-  ngOnInit() {
-  }
+    }
+
+    ngOnInit() {
+    }
+
+    ngOnDestroy() {
+
+    }
 
 }

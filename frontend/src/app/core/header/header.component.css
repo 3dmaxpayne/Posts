@@ -230,6 +230,10 @@ header .navbar > .navbar-inner {
     left: 0;
 }
 
+.sf-menu.minimized > li > ul {
+    width: 100%;
+}
+
 .sf-menu.minimized > li:hover > ul {
     display: inline-block;
 }

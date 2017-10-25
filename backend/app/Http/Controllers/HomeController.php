@@ -14,7 +14,6 @@ class HomeController extends Controller
 
     public function __construct(BookRepository $bookRepository)
     {
-//        $this->middleware('auth');
         $this->bookRepository = $bookRepository;
     }
 

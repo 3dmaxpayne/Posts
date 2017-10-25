@@ -1,0 +1,28 @@
+<div class="content">
+    <div class="row">
+        <div *ngFor="let book of books">
+            <div class="col-md-6">
+                <div class="book">
+                    <h2>{{ book.title}}</h2>
+                    <div class="col-sm-4">
+                        <img src="{{bookService.bookStorage + book.image}}" alt="" class="img-polaroid imgIndent">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="box">
+                            <div class="stars" [innerHtml]=bookService.getBookStars(book) >
+                            </div>
+                            <ul class="listWithMarker v2">
+                                <li><a href="#"> <span *ngFor="let author of book.authors">{{author.name}}, </span> </a></li>
+                                <li><a href="#"><span *ngFor="let genre of book.genres">{{genre.genre}}, </span></a></li>
+                                <li><a>Release date: {{book.date}}</a></li>
+                                <li><a class="price">{{book.price}} $</a></li>
+                            </ul>
+                            <a class="btn btn-link more" href="#">Details</a>
+                            <a class="btn btn-link more" href="#">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
