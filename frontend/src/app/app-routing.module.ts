@@ -4,7 +4,7 @@ import { MainComponent } from './core/main/main.component';
 
 
 const appRoutes: Routes = [
-    { path: '/', component: MainComponent },
+    { path: '', component: MainComponent },
     { path: 'home', loadChildren: './home/home.module#HomeModule' },
     { path: 'books', loadChildren: './books/books.module#BooksModule' },
 
