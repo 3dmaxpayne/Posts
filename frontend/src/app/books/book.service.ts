@@ -7,8 +7,9 @@ import { Subject } from 'rxjs/Subject';
 export class BookService {
     booksChanged = new Subject<Book[]>();
     private books: Book[] = [];
-    private bookStorage = 'http://posts.loc/img/covers/';
-    private apiHost: string = 'http://posts.loc/api/';
+    private bookStorage = 'http://api-posts.jdev.com.ua/img/covers/';
+    private authorImages = 'http://api-posts.jdev.com.ua/img/authors/';
+    private apiHost: string = 'http://api-posts.jdev.com.ua/api/';
 
     constructor(private http: Http) { }
 
@@ -22,6 +23,21 @@ export class BookService {
             }
         }
         return stars;
+    }
+
+    getBookById(id:number) {
+        return this.http.get(this.apiHost + 'book/' + id)
+            .map(
+                (response) => {
+                    this.books = [];
+                    this.books.push(response.json());
+                    this.booksChanged.next(this.books.slice());
+                    return response.json();
+                },
+                (error) => {
+                    console.log(error)
+                }
+            )
     }
 
     getBooks(path: string) {
@@ -78,6 +94,18 @@ export class BookService {
                     console.log(error)
                 }
             );
+    }
+
+    getAuthorWithBooks(id:number) {
+        return this.http.get(this.apiHost + 'author/' + id)
+            .map(
+                (response) => {
+                    return response.json();
+                },
+                (error) => {
+                    console.log(error)
+                }
+            )
     }
 
     getCurrentBooks() {

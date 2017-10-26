@@ -13,8 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     books: Book[] = [];
     private subscription;
 
-    constructor(private http: Http,
-                public bookService: BookService) {
+    constructor(public bookService: BookService) {
         this.subscription = this.bookService.getBooksForHome().subscribe(
             (response) => {
               this.books = response;

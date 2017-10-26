@@ -131,9 +131,7 @@ class BooksController extends Controller
         $book = $this->repository->with('authors', 'comments', 'genres')->find($id);
         $book['rank'] = $book->rank;
 
-        return response()->json([
-            'book' => $book,
-        ]);
+        return response()->json($book);
     }
 
 }

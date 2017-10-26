@@ -52,6 +52,7 @@ class Book extends Model implements Transformable
 
     public function toArray() {
         $data = parent::toArray();
+        $data['id'] = $this->id;
         $data['authors'] = $this->authors->toArray();
         $data['genres'] = $this->genres->toArray();
         return $data;

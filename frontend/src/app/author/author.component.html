@@ -1,18 +1,36 @@
-<div class="content">
+<div *ngIf="author" class="content">
     <div class="row">
-        <div *ngFor="let book of books">
-            <div class="col-md-6">
+        <div class="col-sm-8 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3 col-sm-offset-2">
+            <div class="author_main">
+                <h2>{{author.name}}</h2>
+                <img src="{{bookService.authorImages + author.image}}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="description">
+                <p>
+                    {{author.biography}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="books">
+        <h3>Author's Books</h3>
+        <div class="row">
+            <div *ngFor="let book of author.books | paginate: { itemsPerPage: 20, currentPage: page }" class="col-md-6">
                 <div class="book">
-                    <h2>{{ book.title}}</h2>
+                    <h4>{{ book.title}}</h4>
                     <div class="col-sm-4">
                         <img src="{{bookService.bookStorage + book.image}}" alt="" class="img-polaroid imgIndent">
                     </div>
                     <div class="col-sm-8">
                         <div class="box">
-                            <div class="stars" [innerHtml]=bookService.getBookStars(book) >
+                            <div class="stars" [innerHtml]=bookService.getBookStars(book)>
                             </div>
                             <ul class="listWithMarker v2">
-                                <li><a class="pointer" [routerLink]="['/author', book.id]"> <span *ngFor="let author of book.authors">{{author.name}}, </span> </a>
+                                <li><a > <span *ngFor="let author of book.authors">{{author.name}}, </span> </a>
                                 </li>
                                 <li><a class="pointer" ><span *ngFor="let genre of book.genres">{{genre.genre}}, </span></a>
                                 </li>
@@ -27,5 +45,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="my-pagination">
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>

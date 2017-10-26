@@ -12,7 +12,7 @@ export class AuthService {
 
     signupUser(email: string, password: string) {
 
-        return this.http.post('http://posts.loc/api/register', {'email': email, 'password': password},)
+        return this.http.post('http://api-posts.jdev.com.ua/api/register', {'email': email, 'password': password},)
             .map(
                 (response) => {
                     console.log(response);
@@ -24,7 +24,7 @@ export class AuthService {
     }
 
     signinUser(email: string, password: string) {
-        return this.http.post('http://posts.loc/api/login', {'email': email, 'password': password})
+        return this.http.post('http://api-posts.jdev.com.ua/api/login', {'email': email, 'password': password})
             .map(
                 (response) => {
                     this.user = response.json().user;
@@ -35,7 +35,7 @@ export class AuthService {
     }
 
     logout() {
-        this.http.post('http://posts.loc/api/logout', {});
+        this.http.post('http://api-posts.jdev.com.ua/api/logout', {});
         this.user = null;
     }
 

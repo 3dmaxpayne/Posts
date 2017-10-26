@@ -1,0 +1,12 @@
+.box {
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.stars {
+    margin-left: 45px;
+}
+
+img {
+    max-width: 100%;
+}

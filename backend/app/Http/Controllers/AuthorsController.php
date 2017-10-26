@@ -17,31 +17,9 @@ class AuthorsController extends Controller
      */
     protected $repository;
 
-    /**
-     * @var AuthorValidator
-     */
-    protected $validator;
-
     public function __construct(AuthorRepository $repository, AuthorValidator $validator)
     {
         $this->repository = $repository;
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $authors = $this->repository->all();
-
-
-        return response()->json([
-            'authors' => $authors,
-        ]);
-
     }
 
     /**
@@ -53,11 +31,18 @@ class AuthorsController extends Controller
      */
     public function show($id)
     {
-        $author = $this->repository->with('books')->find($id);
+        $author = $this->repository->with(['books', 'books.genres', 'books.comments'])->find($id);
 
-        return response()->json([
-            'author' => $author,
-        ]);
+        if ($author) {
+            foreach ($author->books as $book) {
+                $book['rank'] = $book->rank;
+            }
+        } else {
+            return abort(404);
+        }
+
+
+        return response()->json($author);
     }
 
 }

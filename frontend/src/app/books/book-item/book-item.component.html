@@ -1,3 +1,27 @@
-<p>
-  book-item works!
-</p>
+<div *ngIf="book" class="content">
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="{{ bookService.bookStorage + book.image }}" alt="{{book.title}}">
+        </div>
+        <div class="col-sm-8">
+            <div class="box">
+                <div class="stars" [innerHtml]=bookService.getBookStars(book) >
+                </div>
+                <ul class="listWithMarker v2">
+                    <li><a class="pointer" [routerLink]="['/author', book.id]"> <span *ngFor="let author of book.authors">{{author.name}}, </span> </a>
+                    </li>
+                    <li><a class="pointer" ><span *ngFor="let genre of book.genres">{{genre.genre}}, </span></a>
+                    </li>
+                    <li><a>Release date: {{book.date}}</a></li>
+                    <li><a [ngClass]="book.sales_price != undefined ? 'striked price' : 'price'">{{book.price}} $</a>
+                        <a *ngIf="book.sales_price" class="price">{{book.sales_price}} $</a></li>
+                </ul>
+                <br>
+                <p>{{book.description}}</p>
+                <a *ngIf="authService.isAuthenticated()" class="btn btn-link more" >Add to Cart</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
